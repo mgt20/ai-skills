@@ -142,7 +142,10 @@ def load_config(path: str | os.PathLike[str] | None = None) -> GroceryConfig:
     cfg = GroceryConfig()
     candidates: list[Path] = []
     if path:
-        candidates.append(Path(path).expanduser())
+        candidate = Path(path).expanduser()
+        if not candidate.is_file():
+            raise FileNotFoundError(f"Grocery config file does not exist: {candidate}")
+        candidates.append(candidate)
     elif os.environ.get('GROCERY_CONFIG'):
         candidates.append(Path(os.environ['GROCERY_CONFIG']).expanduser())
     else:
@@ -155,14 +158,3 @@ def load_config(path: str | os.PathLike[str] | None = None) -> GroceryConfig:
     if not cfg.store.store_id or not cfg.store.postal_code:
         raise ValueError('Grocery config requires store.store_id and store.postal_code')
     return cfg
-
-
-def shareable_config_has_private_data(text: str) -> bool:
-    needles = [
-        'mor' + 'teza',
-        'berna' + 'dette',
-        'C0B6' + 'PPP62KT',
-        'gt.berna' + 'dette',
-        'ghazi' + 'tehrani',
-    ]
-    return any(n.lower() in text.lower() for n in needles)

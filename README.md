@@ -41,6 +41,14 @@ PYTHONPATH=src python3 -m grocery_agent_kit plan \
 The plan command is local and review-only: it performs no network call, delivery,
 cart mutation, checkout, or payment.
 
+## Distribution
+
+The installable wheel contains the **core CLI only**. The portable agent skill,
+LLM setup guide, examples, and contributor documentation are intentionally kept in
+the source checkout under `skills/`, `examples/`, and `docs/`; copy the skill from
+a tagged source release into the target harness rather than treating it as an
+installed Python package resource.
+
 ## Safety and privacy
 
 Never commit household configuration, receipt data, email/Slack destinations,

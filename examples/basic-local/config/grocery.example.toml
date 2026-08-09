@@ -67,9 +67,9 @@ gmail_query = "from:your-forwarding-address@example.com subject:Your grocery rec
 output_mode = "weekly_full"
 template_mode = "weekly_full"
 
-# Optional household staple scoring rules. If omitted, the built-in default rules
-# are used. Define these in grocery.local.toml to tailor prioritization for a
-# different family without editing code.
+# Optional household staple scoring rules. If omitted, planning preserves the
+# provider's neutral ranking. Define these in grocery.local.toml to tailor
+# prioritization for a different family without editing code.
 #[[household.staples]]
 #name = "Vegetarian proteins"
 #keywords = ["tofu", "tempeh", "lentils"]

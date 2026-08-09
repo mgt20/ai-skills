@@ -1,6 +1,6 @@
 import json
+import re
 import subprocess
-import sys
 from importlib.util import module_from_spec, spec_from_file_location
 from pathlib import Path
 import unittest
@@ -29,13 +29,10 @@ class PublicBaselineTests(unittest.TestCase):
         self.assertFalse(module._trusted_products_url("https://dam.flippenterprise.net.evil/flyerkit/publication/123/products"))
 
     def test_no_private_markers_in_tracked_source(self):
-        forbidden = (
-            "Mor" + "teza",
-            "Berna" + "dette",
-            "ghaz" + "itehrani",
-            "C0B6" + "PPP62KT",
-            "192.168.0." + "229",
-            "River" + "mark",
+        forbidden_patterns = (
+            r"\b(?:xox[baprs]-|gh[opusr]_|sk-[A-Za-z0-9])[A-Za-z0-9_-]{8,}\b",
+            r"\b(?:192\.168|10\.|172\.(?:1[6-9]|2\d|3[0-1]))\.\d{1,3}\.\d{1,3}\b",
+            r"\bC[0-9][A-Z0-9]{7,}\b",
         )
         tracked = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode("utf-8").split("\0")
         for relative in filter(None, tracked):
@@ -43,8 +40,8 @@ class PublicBaselineTests(unittest.TestCase):
             if path.suffix in {".pyc", ".whl"}:
                 continue
             text = path.read_text(encoding="utf-8", errors="ignore")
-            for marker in forbidden:
-                self.assertNotIn(marker, text, f"{marker} in {relative}")
+            for pattern in forbidden_patterns:
+                self.assertIsNone(re.search(pattern, text), f"sensitive marker matching {pattern!r} in {relative}")
 
 
 if __name__ == "__main__":

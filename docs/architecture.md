@@ -40,8 +40,11 @@ A store provider must produce JSON containing:
 
 Supported planning buckets are `proteins`, `produce`, `pantry`,
 `dairy/breakfast`, and `freezer`; other values are retained by a provider but not
-used as default plan anchors. A single-day item (`valid_from == valid_to`) is
-rendered separately, never mixed into week-long anchors.
+used as default plan anchors. All required text fields must be nonempty single-line
+values, `product_count` and `page_count` must match the supplied products, and the
+requested plan date must fall inside the publication window. A single-day item
+(`valid_from == valid_to`) is rendered separately, never mixed into week-long
+anchors.
 
 ## Extension contracts
 
