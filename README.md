@@ -32,7 +32,14 @@ Copying `skills/` preserves each skill directory. A skill may reference an optio
 engine or adapter stored elsewhere in this repository; keep the clone available
 when the skill says it needs a repository workdir.
 
-## Included skill: Grocery Planner
+## Skills
+
+Each skill gets a directory under `skills/` and a short subsection here describing
+what it does, how to install any optional engine, and where to find a safe example.
+Add future skills as siblings—do not put their instructions or private settings in
+the repository root.
+
+### Grocery Planner
 
 `skills/grocery-planner/` is a portable, review-only grocery-planning skill. It
 contains its own `SKILL.md`, LLM onboarding reference, and neutral config template.
@@ -46,7 +53,7 @@ Install its optional local engine:
 python3 -m pip install -e .
 ```
 
-## Example review packet
+#### Grocery Planner example output
 
 The following is an **offline, sanitized fixture output**, not a current ad or
 shopping recommendation. It demonstrates the local review packet produced by the
