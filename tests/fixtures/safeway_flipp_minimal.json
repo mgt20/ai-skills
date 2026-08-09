@@ -1,0 +1,855 @@
+[
+  {
+    "average_rating": null,
+    "bottom": -1363.74,
+    "brand": "",
+    "categories": [
+      "Fruits & Vegetables"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6629994|6629994",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": "Member Price: $1.25 ea.",
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019402309,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493270/a27f1040-6459-11f1-9d2e-9e3fa452870f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493270/a27f1040-6459-11f1-9d2e-9e3fa452870f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Fruits & Vegetables",
+        "confidence": null,
+        "google_category_id": 351
+      },
+      "l4": {
+        "category_name": "Fresh & Frozen Vegetables",
+        "confidence": null,
+        "google_category_id": 2833
+      },
+      "l5": {
+        "category_name": "Cucumbers",
+        "confidence": null,
+        "google_category_id": 2850
+      },
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 1988.01,
+    "name": "Cucumber",
+    "original_price": null,
+    "page": 2,
+    "page_destination": null,
+    "post_price_text": "member price",
+    "pre_price_text": "4 for",
+    "price_text": "5.00",
+    "right": 2231.25,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1161.74,
+    "valid_from": "2026-06-17",
+    "valid_from_timestamp": "2026-06-17T00:00:00-04:00",
+    "valid_to": "2026-06-23",
+    "valid_to_timestamp": "2026-06-23T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -1363.69,
+    "brand": "",
+    "categories": [
+      "Fruits & Vegetables"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6629981",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": null,
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019394394,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493270/a26a1938-6459-11f1-9d2e-9e3fa452870f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493270/a26a1938-6459-11f1-9d2e-9e3fa452870f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Fruits & Vegetables",
+        "confidence": null,
+        "google_category_id": 351
+      },
+      "l4": {
+        "category_name": "Fresh & Frozen Fruits",
+        "confidence": null,
+        "google_category_id": 2776
+      },
+      "l5": {
+        "category_name": "Citrus Fruits",
+        "confidence": null,
+        "google_category_id": 2786
+      },
+      "l6": {
+        "category_name": "Lemons",
+        "confidence": null,
+        "google_category_id": 2789
+      },
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 1737.05,
+    "name": "Lemon",
+    "original_price": null,
+    "page": 2,
+    "page_destination": null,
+    "post_price_text": "ea",
+    "pre_price_text": "",
+    "price_text": "0.99",
+    "right": 1988.85,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1167.58,
+    "valid_from": "2026-06-17",
+    "valid_from_timestamp": "2026-06-17T00:00:00-04:00",
+    "valid_to": "2026-06-23",
+    "valid_to_timestamp": "2026-06-23T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -1165.73,
+    "brand": "",
+    "categories": [
+      "Fruits & Vegetables"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6629961",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": null,
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019394386,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493270/a1a52e3e-6459-11f1-9d2e-9e3fa452870f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493270/a1a52e3e-6459-11f1-9d2e-9e3fa452870f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Fruits & Vegetables",
+        "confidence": null,
+        "google_category_id": 351
+      },
+      "l4": {
+        "category_name": "Fresh & Frozen Fruits",
+        "confidence": null,
+        "google_category_id": 2776
+      },
+      "l5": {
+        "category_name": "Citrus Fruits",
+        "confidence": null,
+        "google_category_id": 2786
+      },
+      "l6": {
+        "category_name": "Oranges",
+        "confidence": null,
+        "google_category_id": 2792
+      },
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 1988.67,
+    "name": "Large Navel Oranges",
+    "original_price": null,
+    "page": 2,
+    "page_destination": null,
+    "post_price_text": "lb member price",
+    "pre_price_text": "",
+    "price_text": "1.69",
+    "right": 2229.92,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -969.97,
+    "valid_from": "2026-06-17",
+    "valid_from_timestamp": "2026-06-17T00:00:00-04:00",
+    "valid_to": "2026-06-23",
+    "valid_to_timestamp": "2026-06-23T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -2230.6,
+    "brand": "Barilla",
+    "categories": [
+      "Grains, Pasta & Sides",
+      "Grains, Pasta & Sides"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6658114",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": "12 to 16-oz.\nSelected varieties.\nMember Price: $1.25 ea.",
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019392263,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493267/9f2be9e0-6459-11f1-8e35-7a294766ff6e/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493267/9f2be9e0-6459-11f1-8e35-7a294766ff6e/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Pasta & Noodles",
+        "confidence": null,
+        "google_category_id": 355
+      },
+      "l4": null,
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 513.93,
+    "name": "Barilla Pasta",
+    "original_price": null,
+    "page": 1,
+    "page_destination": null,
+    "post_price_text": "member price",
+    "pre_price_text": "4 for",
+    "price_text": "5.00",
+    "right": 1002.88,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1979.35,
+    "valid_from": "2026-06-17",
+    "valid_from_timestamp": "2026-06-17T00:00:00-04:00",
+    "valid_to": "2026-06-23",
+    "valid_to_timestamp": "2026-06-23T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -1936.15,
+    "brand": "",
+    "categories": [
+      "Bread & Bakery"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6641832",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": "5 - inch. No Fruit Topping. Selected varieties.",
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395290,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493281/a4771a3c-6459-11f1-9106-56e86406d90f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493281/a4771a3c-6459-11f1-9106-56e86406d90f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Bakery",
+        "confidence": null,
+        "google_category_id": 343
+      },
+      "l4": {
+        "category_name": "Cakes & Dessert Bars",
+        "confidence": null,
+        "google_category_id": 2669
+      },
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 4097.33,
+    "name": "Boston Cream Cake",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "ea member price",
+    "pre_price_text": "",
+    "price_text": "5.00",
+    "right": 4408.68,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1724.88,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -1287.58,
+    "brand": "OPEN NATURE\u00ae",
+    "categories": [
+      "Meat & Seafood"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6632213",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": null,
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395308,
+    "image_url": "https://f.wishabi.net/page_items/423545013/1781065768/extra_large.jpg",
+    "images": [
+      "https://f.wishabi.net/page_items/423545013/1781065768/extra_large.jpg"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Meat, Seafood & Eggs",
+        "confidence": null,
+        "google_category_id": 353
+      },
+      "l4": {
+        "category_name": "Meat",
+        "confidence": null,
+        "google_category_id": 2917
+      },
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 4249.05,
+    "name": "Open Nature\u00ae Assorted Lamb Shoulder Chops",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "lb member price",
+    "pre_price_text": "",
+    "price_text": "5.00",
+    "right": 4721.13,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1069.38,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -1936.09,
+    "brand": "Sara Lee | Oroweat",
+    "categories": [
+      "Bread & Bakery"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6647050|6633203",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": "12.5 to 16.7-oz. Selected varieties.\nMember Price: $2.50 ea.",
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395276,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493281/9eb38266-6459-11f1-9106-56e86406d90f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493281/9eb38266-6459-11f1-9106-56e86406d90f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Bakery",
+        "confidence": null,
+        "google_category_id": 343
+      },
+      "l4": {
+        "category_name": "Bagels",
+        "confidence": null,
+        "google_category_id": 2666
+      },
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 3783.12,
+    "name": "Sara Lee Bagels or Oroweat English Muffins",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "member price",
+    "pre_price_text": "2 for",
+    "price_text": "5.00",
+    "right": 4096.77,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1721.58,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -2155.1,
+    "brand": "Betty Crocker | Nature Valley",
+    "categories": [
+      "Breakfast & Cereal"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6692851|6692842|6646953",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": "Selected varieties.\nMember Price: $1.67 ea.",
+    "disclaimer_text": "Limit 6 items.",
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395268,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493281/97d96744-6459-11f1-9106-56e86406d90f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493281/97d96744-6459-11f1-9106-56e86406d90f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Snack Foods",
+        "confidence": null,
+        "google_category_id": 358
+      },
+      "l4": null,
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 3781.95,
+    "name": "Betty Crocker Fruit Snacks 6 to 10-ct. Nature Valley Bars 5 to 6-ct.",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "member price",
+    "pre_price_text": "3 for",
+    "price_text": "5.00",
+    "right": 4095.73,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1937.29,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -2377.13,
+    "brand": "",
+    "categories": [
+      "Flowers & Decor"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6670569|6615176",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": null,
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395259,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493281/a1345434-6459-11f1-9106-56e86406d90f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493281/a1345434-6459-11f1-9106-56e86406d90f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Home & Garden",
+        "confidence": null,
+        "google_category_id": 745
+      },
+      "l2": {
+        "category_name": "Plants",
+        "confidence": null,
+        "google_category_id": 947
+      },
+      "l3": {
+        "category_name": "Flowers",
+        "confidence": null,
+        "google_category_id": 4440
+      },
+      "l4": null,
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 4407.02,
+    "name": "Apothecary Roses",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "ea member price",
+    "pre_price_text": "",
+    "price_text": "5.00",
+    "right": 4721.01,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -2161.39,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -1721.19,
+    "brand": "",
+    "categories": [
+      "Meat & Seafood"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6630210",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": "7 - oz. Farm raised. \nIncludes marinated portion.",
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395241,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493281/9a793e0c-6459-11f1-9106-56e86406d90f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493281/9a793e0c-6459-11f1-9106-56e86406d90f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Food Items",
+        "confidence": null,
+        "google_category_id": 342
+      },
+      "l3": {
+        "category_name": "Meat, Seafood & Eggs",
+        "confidence": null,
+        "google_category_id": 353
+      },
+      "l4": {
+        "category_name": "Seafood",
+        "confidence": null,
+        "google_category_id": 2921
+      },
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 4406.17,
+    "name": "Fresh Atlantic Salmon Portion",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "ea member price",
+    "pre_price_text": "",
+    "price_text": "5.00",
+    "right": 4720.85,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1505.26,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -2157.62,
+    "brand": "Tide | Gain | Bounty",
+    "categories": [
+      "Paper, Cleaning & Home"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6616176|6616172|6616168",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": null,
+    "disclaimer_text": null,
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395252,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493281/9a0f8372-6459-11f1-9106-56e86406d90f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493281/9a0f8372-6459-11f1-9106-56e86406d90f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Home & Garden",
+        "confidence": null,
+        "google_category_id": 745
+      },
+      "l2": {
+        "category_name": "Household Supplies",
+        "confidence": null,
+        "google_category_id": 892
+      },
+      "l3": {
+        "category_name": "Laundry Supplies",
+        "confidence": null,
+        "google_category_id": 899
+      },
+      "l4": {
+        "category_name": "Laundry Detergent",
+        "confidence": null,
+        "google_category_id": 3832
+      },
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 4407.04,
+    "name": "Tide Laundry Detergent 32 to 34-oz. Selected varieties. Gain Laundry Detergent 16-ct. Flings or 46-oz. Liquid. Bounty Essentials Paper Towel 2-Triple Rolls.",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "ea member price",
+    "pre_price_text": "",
+    "price_text": "5.00",
+    "right": 4719.9,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -1938.86,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  },
+  {
+    "average_rating": null,
+    "bottom": -2375.79,
+    "brand": "La Colombe | 7UP | Ghost | Core",
+    "categories": [
+      "Beverages"
+    ],
+    "custom_id_field_1": null,
+    "custom_id_field_2": null,
+    "custom_id_field_3": "6670674|6670674|6670674|6656411|6656411|6656411|6656059|6656059|6656059|6656050|6655922|6655922",
+    "custom_id_field_4": null,
+    "custom_id_field_5": null,
+    "custom_id_field_6": null,
+    "description": null,
+    "disclaimer_text": "+CRV\n(CA only)",
+    "flyer_id": 7979265,
+    "hide_brand_in_pop": false,
+    "hide_flyer_item_ttm_links_outside_validity": false,
+    "hosted_coupon_image": null,
+    "id": 1019395554,
+    "image_url": "https://f.wishabi.net/page_pdf_images/23493281/a6ac1ece-6459-11f1-9106-56e86406d90f/x_large",
+    "images": [
+      "https://f.wishabi.net/page_pdf_images/23493281/a6ac1ece-6459-11f1-9106-56e86406d90f/x_large"
+    ],
+    "in_store_only": false,
+    "item_categories": {
+      "l1": {
+        "category_name": "Food, Beverages & Tobacco",
+        "confidence": null,
+        "google_category_id": 319
+      },
+      "l2": {
+        "category_name": "Beverages",
+        "confidence": null,
+        "google_category_id": 320
+      },
+      "l3": null,
+      "l4": null,
+      "l5": null,
+      "l6": null,
+      "l7": null
+    },
+    "item_type": 1,
+    "item_web_url": null,
+    "left": 3780.61,
+    "name": "La Colombe Draft Latte 4-pack, 9-oz. bai 6-pack, 14-oz. 7UP 10-pack, 7.5-oz. Selected varieties. Ghost 4-pack, 8.4-oz. Core Hydration Water 6-pack, 16.9-oz.",
+    "original_price": null,
+    "page": 4,
+    "page_destination": null,
+    "post_price_text": "ea member price",
+    "pre_price_text": "",
+    "price_text": "5.00",
+    "right": 4095.31,
+    "sale_story": null,
+    "sku": null,
+    "sub_items": [],
+    "top": -2157.4,
+    "valid_from": "2026-06-19",
+    "valid_from_timestamp": "2026-06-19T00:00:00-04:00",
+    "valid_to": "2026-06-19",
+    "valid_to_timestamp": "2026-06-19T23:59:59-04:00",
+    "web_commission_url": null
+  }
+]

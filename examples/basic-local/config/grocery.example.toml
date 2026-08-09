@@ -1,0 +1,78 @@
+# Grocery Planner example config
+#
+# Copy this file to:
+#   config/grocery.local.toml
+# Then edit the copied file for your household. Do not share grocery.local.toml.
+# Keep real email addresses, Slack channel IDs, receipt queries, and family details private.
+
+[store]
+# Human-readable store name shown in generated plans.
+name = "Your Grocery Store"
+
+# Store-specific ID used by the weekly-ad extractor.
+# For Safeway/Albertsons stores, this is the storeId from the local store page or weekly-ad URL.
+# Example pattern only: do not use this placeholder without replacing it.
+store_id = "YOUR_STORE_ID"
+
+# Postal code used to target the correct local weekly ad.
+postal_code = "POSTAL_CODE_REQUIRED"
+
+# Display address shown in the generated grocery packet.
+address = "Your store address"
+
+[delivery]
+# Email recipients for wrappers that send the grocery packet.
+# Use a private config for real family addresses.
+email_to = ["family@example.com"]
+
+# Subject line for grocery emails.
+email_subject = "This week's grocery plan"
+
+# First/title line for a Slack/root-message summary, if Slack delivery is configured separately.
+slack_title = "🛒 This week's grocery plan"
+
+[personalization]
+# Set true only if the family wants a recurring poem/intro.
+# Most shared installs should start with false.
+poem_enabled = false
+
+# Optional intro text for the weekly plan. Leave blank for neutral output.
+weekly_poem = ""
+
+# Optional intro text for a Friday/special-deals reminder. Leave blank for neutral output.
+friday_poem = ""
+
+[paths]
+# Extractor JSON input, relative to the profile/workdir.
+ad_extract = "safeway_ad_extract/latest_extract.json"
+
+# Markdown output for the latest weekly packet.
+weekly_latest_md = "weekly_shopping_list_latest.md"
+
+# HTML output for email/review.
+weekly_latest_html = "weekly_shopping_list_latest.html"
+
+# Short root-message output for Slack/review.
+weekly_slack_root = "weekly_shopping_list_slack_root_latest.txt"
+
+[receipts]
+# Gmail query for receipt learning, if enabled.
+# Use only sanitized/private receipt ingestion. Raw receipts should stay local.
+# Example: "from:orders@example-grocery.com subject:receipt"
+gmail_query = "from:your-forwarding-address@example.com subject:Your grocery receipt"
+
+[render]
+# Explicit output/template modes. Keep weekly_full for the normal production packet.
+# Allowed: weekly_full, friday_reminder, short_preview, friend_demo.
+output_mode = "weekly_full"
+template_mode = "weekly_full"
+
+# Optional household staple scoring rules. If omitted, the built-in default rules
+# are used. Define these in grocery.local.toml to tailor prioritization for a
+# different family without editing code.
+#[[household.staples]]
+#name = "Vegetarian proteins"
+#keywords = ["tofu", "tempeh", "lentils"]
+#score = 10
+#tags = ["vegetarian_protein"]
+#reason = "friend household vegetarian protein staple"

@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+config/*.local.toml
+*.local.toml
+raw_receipts/
+state/
+artifacts/
+build/
+*.egg-info/
+weekly_shopping_list_*
+safeway_ad_extract/
+.DS_Store
