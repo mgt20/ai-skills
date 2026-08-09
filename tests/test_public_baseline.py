@@ -12,6 +12,22 @@ class PublicBaselineTests(unittest.TestCase):
     def test_core_does_not_ship_unvetted_live_recipe_integrations(self):
         self.assertFalse((ROOT / "src" / "grocery_agent_kit" / "recipe_api.py").exists())
 
+    def test_legacy_repository_brand_is_absent_from_reachable_history(self):
+        legacy_name = "grocery" + "-agent-kit"
+        history = subprocess.check_output(
+            ["git", "log", "--all", "--format=%H", "-S", legacy_name],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+        self.assertEqual(history, "", "legacy repository brand remains reachable in Git history")
+
+    def test_catalog_metadata_and_license_are_branded(self):
+        metadata = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
+        license_text = (ROOT / "LICENSE").read_text(encoding="utf-8")
+        self.assertIn('name = "ai-skills-grocery-planner"', metadata)
+        self.assertIn('grocery-planner = "grocery_agent_kit.__main__:main"', metadata)
+        self.assertTrue(license_text.startswith("MIT License\n\nCopyright (c) 2026 Mortezagt\n"))
+
     def test_removed_recipe_module_is_absent_from_reachable_history(self):
         history = subprocess.check_output(
             ["git", "log", "--all", "--format=%H", "--", "src/grocery_agent_kit/recipe_api.py"],

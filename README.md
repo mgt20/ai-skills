@@ -32,6 +32,16 @@ Copying `skills/` preserves each skill directory. A skill may reference an optio
 engine or adapter stored elsewhere in this repository; keep the clone available
 when the skill says it needs a repository workdir.
 
+## License
+
+This catalog and its included code are licensed under the [MIT License](LICENSE).
+MIT is the appropriate default here: it is simple, widely understood, and permits
+friends and contributors to use, modify, redistribute, or embed individual skills
+with attribution and without requiring their surrounding projects to be open source.
+If a future contribution needs an explicit patent grant or stronger reciprocal terms,
+it should be reviewed as a separate licensing decision rather than silently changing
+the catalog-wide license.
+
 ## Skills
 
 Each skill gets a directory under `skills/` and a short subsection here describing
