@@ -12,6 +12,15 @@ class PublicBaselineTests(unittest.TestCase):
     def test_core_does_not_ship_unvetted_live_recipe_integrations(self):
         self.assertFalse((ROOT / "src" / "grocery_agent_kit" / "recipe_api.py").exists())
 
+    def test_ai_skills_catalog_scaffold_is_present(self):
+        self.assertTrue((ROOT / "AGENTS.md").is_file())
+        for directory in ("skills", "rules", "prompts", "templates", "examples"):
+            self.assertTrue((ROOT / directory / "README.md").is_file(), directory)
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("# AI Skills", readme)
+        self.assertIn("BEGIN GROCERY-PLANNER-EXAMPLE", readme)
+        self.assertIn("offline, sanitized fixture output", readme)
+
     def test_portable_skill_is_self_contained(self):
         skill_dir = ROOT / "skills" / "grocery-planner"
         skill = skill_dir / "SKILL.md"

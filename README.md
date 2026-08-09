@@ -1,78 +1,100 @@
-# Grocery Agent Skills
+# AI Skills
 
-A privacy-first **skills repository** with an optional harness-neutral Python core
-for sale-aware grocery planning. A friend can merge `skills/` into an existing
-Hermes, OpenClaw, or directory-based agent skills folder without importing any
-private household data.
+A private, version-controlled home for reusable AI skills, behavioral rules,
+prompts, templates, and operator-facing Markdown. Each portable skill lives in its
+own subdirectory so it can be copied into another agent harness without flattening
+its supporting files.
 
-## Status
+## Repository layout
 
-**Private bootstrap; Phase 1 vertical slice is usable locally.** The first supported
-store extractor is Safeway/Flipp. The portable planner accepts any normalized
-weekly-ad artifact that satisfies the documented contract.
+```text
+skills/       # portable SKILL.md directories, references, templates, assets
+rules/        # reusable agent policies and operating constraints
+prompts/      # reusable task/system/onboarding prompts
+templates/    # starter files for new skills, rules, and prompts
+docs/         # architecture and contributor documentation
+examples/     # sanitized, committed outputs and fixtures
+AGENTS.md     # repository-wide contribution and safety contract
+```
 
-## What works today
-
-- `skills/README.md`: the portable-skills manifest and merge contract.
-- `skills/grocery-planner/SKILL.md`: the grocery-planning skill behavior and safety contract.
-- `skills/grocery-planner/references/LLM_SETUP.md`: guided household onboarding.
-- `skills/grocery-planner/templates/grocery.example.toml`: neutral private-config starting point.
-- `scripts/extract_safeway_weekly_ad.py`: optional Safeway/Flipp extraction to a normalized artifact.
-- `python -m grocery_agent_kit plan`: creates review-only Markdown, HTML, and JSON plan artifacts from a verified normalized ad.
-- `python -m grocery_agent_kit validate-config`: prevents use of placeholder store settings in a real household configuration.
-
-Recipe selection, messaging, cart integration, and scheduling remain **edge adapters**.
-They are intentionally not invoked by the planner CLI.
-
-## Install a skill and run the fixture-only demo
+## Install a skill
 
 ```bash
 git clone https://github.com/mgt20/ai-skills.git
 cd ai-skills
-python3 -m pip install -e .
 
-# Merge portable skills without flattening their folders.
+# For Hermes or another directory-based skill loader:
 mkdir -p ~/.hermes/skills
 cp -a skills/. ~/.hermes/skills/
-
-python3 -m unittest discover -s tests -v
-
-# Make a private copy before using a real store or household.
-cp skills/grocery-planner/templates/grocery.example.toml ~/grocery.local.toml
-grocery-planner validate-config --config ~/grocery.local.toml
-
-# Plan only from a normalized artifact whose coverage.status is "ok".
-grocery-planner plan \
-  --config skills/grocery-planner/templates/grocery.example.toml \
-  --ad-json /path/to/latest_extract.json \
-  --out-dir ./out \
-  --date 2026-01-01
 ```
 
-The plan command is local and review-only: it performs no network call, delivery,
-cart mutation, checkout, or payment.
+Copying `skills/` preserves each skill directory. A skill may reference an optional
+engine or adapter stored elsewhere in this repository; keep the clone available
+when the skill says it needs a repository workdir.
 
-## Distribution
+## Included skill: Grocery Planner
 
-The installable wheel contains the **core CLI only**. The portable agent skill,
-LLM setup guide, examples, and contributor documentation are intentionally kept in
-the source checkout under `skills/`, `examples/`, and `docs/`; copy the skill from
-a tagged source release into the target harness rather than treating it as an
-installed Python package resource.
+`skills/grocery-planner/` is a portable, review-only grocery-planning skill. It
+contains its own `SKILL.md`, LLM onboarding reference, and neutral config template.
+The optional Python engine is tested locally and deliberately excludes recipe
+providers, messaging, cart actions, payment, checkout, credentials, and household
+history.
 
-## Safety and privacy
+Install its optional local engine:
 
-Never commit household configuration, receipt data, email/Slack destinations,
-loyalty data, tokens, generated shopping artifacts, or payment information. The
-engine may create a reviewable shopping list; cart edits require explicit approval
-in a separate adapter, and checkout/payment is out of scope.
+```bash
+python3 -m pip install -e .
+```
 
-## Layout
+## Example review packet
 
-- `skills/` — mergeable skill directories; each has its own `SKILL.md`, references, and neutral templates.
-- `src/` — optional harness-neutral Python engine.
-- `scripts/` — optional store adapters and local runners.
-- `docs/` — architecture and contributor contracts for the engine/adapters.
-- `tests/` — fixture-only regressions; no test needs a live store, account, or token.
+The following is an **offline, sanitized fixture output**, not a current ad or
+shopping recommendation. It demonstrates the local review packet produced by the
+Grocery Planner skill after a provider artifact passes coverage, store, and date
+validation.
 
-See `docs/architecture.md` before adding a store, recipe provider, or harness adapter.
+<!-- BEGIN GROCERY-PLANNER-EXAMPLE -->
+
+```markdown
+# This week's grocery plan
+
+**Store:** Example Market (store `demo`, postal `POSTAL_CODE_REQUIRED`)
+**Ad verification:** publication `demo-2026-01`; valid 2026-01-01 to 2026-01-07.
+**Coverage:** ok — 7 products across 2 pages.
+**Cart boundary:** No cart was modified. Recipe selection and cart actions require separate explicit approval.
+
+## Dinner anchors
+- Chicken Thighs — $2.49 lb (2026-01-01–2026-01-07)
+- Frozen Shrimp — $7.99 ea (2026-01-01–2026-01-07)
+
+## Best sale anchors
+### proteins
+- Chicken Thighs — $2.49 lb (2026-01-01–2026-01-07)
+- Frozen Shrimp — $7.99 ea (2026-01-01–2026-01-07)
+### produce
+- Salad Kit — 2 for $5.00 (2026-01-01–2026-01-07)
+### pantry
+- Pasta — $1.25 ea (2026-01-01–2026-01-07)
+### dairy/breakfast
+- Milk — $3.49 ea (2026-01-01–2026-01-07)
+### freezer
+- Frozen Pizza — $4.99 ea (2026-01-01–2026-01-07)
+
+## Single-day offers
+- Friday Strawberries — $5.00 ea (2026-01-02–2026-01-02)
+
+## Next review step
+- Pick up to two recipes that fit the dinner anchors and your household constraints. Confirm any member/coupon requirements in the retailer cart before purchasing.
+```
+
+<!-- END GROCERY-PLANNER-EXAMPLE -->
+
+The source fixture and regression tests are local-only and contain no live store,
+household, account, receipt, or payment data.
+
+## Rules for contributions
+
+Read [AGENTS.md](AGENTS.md) before adding a skill, rule, prompt, or template.
+Keep private configs, receipts, credentials, personal destinations, and generated
+household artifacts out of the repository. Add a small example or test whenever a
+new portable contract is introduced.
