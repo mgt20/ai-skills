@@ -10,6 +10,9 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = {text = "MIT"}
 
+[project.scripts]
+grocery-planner = "grocery_agent_kit.__main__:main"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 

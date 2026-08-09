@@ -3,18 +3,9 @@ from __future__ import annotations
 import re
 from typing import Any, Mapping, Sequence
 
-DEFAULT_HOUSEHOLD_RULES: list[dict[str, Any]] = [
-    {"tag": "milk", "score": 8, "needles": ["milk", "horizon organic", "lucerne milk"], "reason": "milk recurring staple"},
-    {"tag": "egg_bites", "score": 9, "needles": ["egg bites", "three bridges"], "reason": "egg bites recurring breakfast staple"},
-    {"tag": "berries_fruit", "score": 7, "needles": ["blackberries", "berries", "strawberries", "banana", "mandarin", "clementine", "grapes", "orange", "fruit"], "reason": "fruit/berries recurring produce staple"},
-    {"tag": "easy_veg", "score": 8, "needles": ["cucumber", "avocado", "onion", "salad kit", "spinach", "brussels", "tomato", "bell pepper", "vegetable"], "reason": "easy vegetables recurring produce staple"},
-    {"tag": "cheese_dairy", "score": 6, "needles": ["tillamook", "cheese", "yogurt"], "reason": "cheese/dairy repeat signal"},
-    {"tag": "kid_snacks_drinks", "score": 7, "needles": ["mott", "juice", "gogo squeez", "applesauce", "snack tray", "lunchables", "fruit snacks"], "reason": "kid snacks/drinks repeat signal"},
-    {"tag": "chicken_turkey", "score": 6, "needles": ["chicken", "turkey"], "reason": "chicken/turkey repeat protein signal"},
-    {"tag": "seafood", "score": 5, "needles": ["salmon", "shrimp", "fish", "seafood", "crab"], "reason": "seafood repeat protein signal"},
-    {"tag": "frozen_convenience", "score": 5, "needles": ["frozen", "waffles", "pizza", "fish sticks"], "reason": "frozen/convenience backup repeat signal"},
-    {"tag": "eggs", "score": 5, "needles": ["eggs", "large brown", "cage free"], "reason": "eggs recurring breakfast staple"},
-]
+# A shared install intentionally starts with no household assumptions. Add rules in
+# private TOML configuration when a household wants staple-aware ranking.
+DEFAULT_HOUSEHOLD_RULES: list[dict[str, Any]] = []
 
 
 def _slug(value: str) -> str:
