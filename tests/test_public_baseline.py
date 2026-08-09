@@ -12,6 +12,23 @@ class PublicBaselineTests(unittest.TestCase):
     def test_core_does_not_ship_unvetted_live_recipe_integrations(self):
         self.assertFalse((ROOT / "src" / "grocery_agent_kit" / "recipe_api.py").exists())
 
+    def test_removed_recipe_module_is_absent_from_reachable_history(self):
+        history = subprocess.check_output(
+            ["git", "log", "--all", "--format=%H", "--", "src/grocery_agent_kit/recipe_api.py"],
+            cwd=ROOT,
+            text=True,
+        ).strip()
+        self.assertEqual(history, "", "removed household-policy module remains reachable in Git history")
+
+    def test_email_domains_are_sanitized(self):
+        allowed_domains = {"example.com", "example-grocery.com", "sample.test"}
+        email_pattern = re.compile(r"\b[A-Za-z0-9._%+-]+@([A-Za-z0-9.-]+\.[A-Za-z]{2,})\b")
+        tracked = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode("utf-8").split("\0")
+        for relative in filter(None, tracked):
+            text = (ROOT / relative).read_text(encoding="utf-8", errors="ignore")
+            for domain in email_pattern.findall(text):
+                self.assertIn(domain.lower(), allowed_domains, f"non-sanitized email domain in {relative}")
+
     def test_ai_skills_catalog_scaffold_is_present(self):
         self.assertTrue((ROOT / "AGENTS.md").is_file())
         for directory in ("skills", "rules", "prompts", "templates", "examples"):
@@ -51,7 +68,8 @@ class PublicBaselineTests(unittest.TestCase):
 
     def test_no_private_markers_in_tracked_source(self):
         forbidden_patterns = (
-            r"\b(?:xox[baprs]-|gh[opusr]_|sk-[A-Za-z0-9])[A-Za-z0-9_-]{8,}\b",
+            r"-----BEGIN (?:[A-Z0-9 ]+ )?PRIVATE KEY-----",
+            r"\b(?:xox[baprs]-|gh[opusr]_|github_pat_|sk-[A-Za-z0-9]|AKIA|ASIA)[A-Za-z0-9_-]{8,}\b",
             r"\b(?:192\.168|10\.|172\.(?:1[6-9]|2\d|3[0-1]))\.\d{1,3}\.\d{1,3}\b",
             r"\bC[0-9][A-Z0-9]{7,}\b",
         )

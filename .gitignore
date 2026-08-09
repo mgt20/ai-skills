@@ -5,6 +5,11 @@ __pycache__/
 .env.*
 config/*.local.toml
 *.local.toml
+*.pem
+*.key
+*.p12
+*.pfx
+.secrets/
 raw_receipts/
 state/
 artifacts/
