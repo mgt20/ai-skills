@@ -238,6 +238,19 @@ def discover_products_url(store_id: str, postal_code: str) -> tuple[str | None, 
     return None, warnings
 
 
+def _trusted_products_url(url: str) -> bool:
+    """Allow only the HTTPS Flipp products endpoint used by this adapter."""
+    try:
+        parsed = urllib.parse.urlparse(url)
+        return (
+            parsed.scheme == "https"
+            and parsed.hostname == "dam.flippenterprise.net"
+            and bool(re.fullmatch(r"/flyerkit/publication/\d+/products", parsed.path))
+        )
+    except ValueError:
+        return False
+
+
 def _coerce_products(payload: Any) -> list[dict[str, Any]]:
     if isinstance(payload, list):
         return [item for item in payload if isinstance(item, dict)]
@@ -281,6 +294,15 @@ def summarize_by_bucket(products: list[dict[str, Any]]) -> dict[str, Any]:
     return summaries
 
 
+def _redact_products_url(url: str) -> str:
+    """Keep a source reference without persisting access credentials in artifacts."""
+    parsed = urllib.parse.urlparse(url)
+    query = urllib.parse.parse_qsl(parsed.query, keep_blank_values=True)
+    sensitive = {"access_token", "api_key", "token", "authorization"}
+    redacted = [(key, value) for key, value in query if key.lower() not in sensitive]
+    return urllib.parse.urlunparse(parsed._replace(query=urllib.parse.urlencode(redacted)))
+
+
 def build_artifact(
     raw_products: list[dict[str, Any]],
     store_id: str = DEFAULT_STORE_ID,
@@ -295,7 +317,7 @@ def build_artifact(
     coverage = build_coverage(products, min_products=min_products, min_pages=min_pages)
     warnings = list(discovery_warnings or [])
     warnings.extend(coverage["warnings"])
-    if store_id != DEFAULT_STORE_ID or postal_code != DEFAULT_POSTAL_CODE:
+    if (DEFAULT_STORE_ID and store_id != DEFAULT_STORE_ID) or (DEFAULT_POSTAL_CODE and postal_code != DEFAULT_POSTAL_CODE):
         warnings.append(f"Store/postal values differ from configured defaults: store_id={store_id} postal_code={postal_code}.")
     if not products_url:
         warnings.append("Products URL is missing.")
@@ -303,7 +325,7 @@ def build_artifact(
     return {
         "store": {"name": STORE_NAME_BY_ID.get(store_id, "Safeway"), "store_code": str(store_id), "postal_code": str(postal_code)},
         "publication": _build_publication(raw_products, products_url),
-        "products_url": products_url,
+        "products_url": _redact_products_url(products_url),
         "product_count": len(products),
         "page_count": len(pages),
         "pages": pages,
@@ -431,6 +453,10 @@ def run(args: argparse.Namespace) -> int:
                 print(f"warning: {warning}", file=sys.stderr)
             print("error: Flipp products URL could not be discovered from stdlib HTML fetch; pass --products-url.", file=sys.stderr)
             return 2
+
+    if not _trusted_products_url(products_url):
+        print("error: --products-url must be an HTTPS dam.flippenterprise.net flyerkit products endpoint.", file=sys.stderr)
+        return 2
 
     try:
         payload = fetch_json(products_url)

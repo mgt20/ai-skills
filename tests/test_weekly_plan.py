@@ -77,6 +77,23 @@ class WeeklyPlanTests(unittest.TestCase):
         ])
         self.assertEqual(result, 2)
 
+    def test_config_validation_rejects_all_shipped_placeholders(self):
+        example = ROOT / "examples" / "basic-local" / "config" / "grocery.example.toml"
+        self.assertEqual(main(["validate-config", "--config", str(example)]), 2)
+        with tempfile.TemporaryDirectory() as temp_dir:
+            config_path = Path(temp_dir) / "grocery.local.toml"
+            config_path.write_text(
+                example.read_text(encoding="utf-8")
+                .replace("Your Grocery Store", "Example Market")
+                .replace("YOUR_STORE_ID", "example-123")
+                .replace("POSTAL_CODE_REQUIRED", "POSTAL_CODE_FOR_TESTING")
+                .replace("Your store address", "123 Example Street")
+                .replace("family@example.com", "family@sample.test")
+                .replace("your-forwarding-address@example.com", "receipts@sample.test"),
+                encoding="utf-8",
+            )
+            self.assertEqual(main(["validate-config", "--config", str(config_path)]), 0)
+
     def test_cli_writes_review_artifacts_without_network_or_cart_side_effects(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             temp = Path(temp_dir)

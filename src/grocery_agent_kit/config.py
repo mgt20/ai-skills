@@ -10,7 +10,7 @@ import tomllib
 
 from .household import normalize_household_rules
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 # Current, store-specific sale lines are generated from an ad-provider artifact.
 # The public kit deliberately has no historical price or retailer fallback data.
@@ -41,7 +41,7 @@ class PersonalizationConfig:
 @dataclass
 class PathsConfig:
     root: Path = ROOT
-    ad_extract: str = 'safeway_ad_extract/latest_extract.json'
+    ad_extract: str = 'weekly_ad/latest_extract.json'
     weekly_latest_md: str = 'weekly_shopping_list_latest.md'
     weekly_latest_html: str = 'weekly_shopping_list_latest.html'
     weekly_slack_root: str = 'weekly_shopping_list_slack_root_latest.txt'
@@ -146,7 +146,7 @@ def load_config(path: str | os.PathLike[str] | None = None) -> GroceryConfig:
     elif os.environ.get('GROCERY_CONFIG'):
         candidates.append(Path(os.environ['GROCERY_CONFIG']).expanduser())
     else:
-        candidates.extend([ROOT / 'config/grocery.local.toml', ROOT / 'config/grocery.example.toml'])
+        candidates.append(ROOT / 'config/grocery.local.toml')
     for candidate in candidates:
         if candidate.exists():
             cfg = _merge_table(cfg, tomllib.loads(candidate.read_text(encoding='utf-8')))

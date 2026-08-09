@@ -1,8 +1,9 @@
 # Architecture
 
 `grocery_agent_kit` is the harness-neutral layer: configuration loading,
-household scoring, plan construction, recipe-provider protocols, and rendering.
-Store-specific extraction and all external side effects live at the edges.
+household scoring, plan construction, and rendering.
+Store-specific extraction, recipe selection, and all external side effects live at
+the edges.
 
 ## Core boundary
 
@@ -46,9 +47,9 @@ rendered separately, never mixed into week-long anchors.
 
 - **Store providers** fetch and normalize a retailer’s data into the v1 artifact.
   They must report coverage honestly and use sanitized static fixtures in tests.
-- **Recipe providers** implement the existing `RecipeProvider` protocol. They may
-  use plan anchors but must be optional, failure-tolerant, and network-isolated in
-  unit tests.
+- **Recipe providers** are a future edge-adapter interface. A provider must be
+  optional, failure-tolerant, network-isolated in unit tests, and driven by
+  explicit household policy rather than core defaults.
 - **Harness adapters** perform setup, scheduling, delivery, and approval-gated
   cart actions. They consume core artifacts; they must not change core planning
   rules.
@@ -65,6 +66,6 @@ must remain green before any public release.
 
 ## Current milestone
 
-Phase 1 delivers fixture-driven, review-only plan generation. The next increment
-is a recipe-selection adapter that consumes `dinner_anchors` without moving live
-network access or household assumptions into the core.
+Phase 1 delivers fixture-driven, review-only plan generation. A future recipe
+adapter will consume `dinner_anchors` only after its policy and credential
+boundaries are independently verified.

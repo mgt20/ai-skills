@@ -20,6 +20,12 @@ def _config_readiness_errors(cfg: GroceryConfig) -> list[str]:
         errors.append("store.postal_code must be set in a private config")
     if cfg.store.name == "Your Grocery Store":
         errors.append("store.name must be set in a private config")
+    if cfg.store.address == "Your store address":
+        errors.append("store.address must be set in a private config")
+    if cfg.delivery.email_to == ["family@example.com"]:
+        errors.append("delivery.email_to must be set or removed in a private config")
+    if "your-forwarding-address@example.com" in cfg.receipts.gmail_query:
+        errors.append("receipts.gmail_query must be set or removed in a private config")
     return errors
 
 

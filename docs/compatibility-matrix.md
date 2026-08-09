@@ -6,8 +6,6 @@
 | Hermes | Documented | Skill + profile/workdir + optional cron |
 | OpenClaw | Documented | Skill + workspace + harness scheduler |
 | Safeway/Flipp | Bootstrap | Sanitized fixture; live source must be configured |
-| Mealie | Experimental | Optional recipe provider via private env |
-| TheMealDB | Supported | Public recipe provider |
-| Spoonacular | Experimental | Optional keyed provider |
+| Recipe providers | Planned | Must be a separately reviewed, optional edge adapter |
 
 “Documented” means the skill is usable by the harness; it does not imply an automatic installer or delivery integration.
