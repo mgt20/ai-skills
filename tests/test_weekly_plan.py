@@ -20,7 +20,7 @@ from grocery_agent_kit.weekly_plan import CoverageError, PlanValidationError, bu
 
 class WeeklyPlanTests(unittest.TestCase):
     def setUp(self) -> None:
-        self.example_config = ROOT / "examples" / "basic-local" / "config" / "grocery.example.toml"
+        self.example_config = ROOT / "skills" / "grocery-planner" / "templates" / "grocery.example.toml"
         self.cfg = load_config(self.example_config)
         self.ad = {
             "store": {"name": "Example Market", "store_code": "demo", "postal_code": "POSTAL_CODE_REQUIRED"},

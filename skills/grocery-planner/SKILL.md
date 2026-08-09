@@ -1,53 +1,105 @@
 ---
-name: grocery-planner-kit
-description: Build a practical, sale-aware household grocery plan with two realistic dinners, verified local deals, recipe links, quantity math, and approval-gated cart help.
+name: grocery-planner
+description: Use when planning verified sale-aware groceries and two practical dinners.
+metadata:
+  compatible_harnesses: [Hermes, OpenClaw, generic]
+  requires: [python>=3.11]
 ---
 
-# Grocery Planner Kit
+# Grocery Planner
 
-Use this skill when a user wants a weekly grocery plan, sale-aware dinner ideas, a cart-ready list, or help setting up this automation for their household.
+Use this skill to guide a household through a **review-only**, sale-aware grocery
+plan: verified weekly-ad data, two practical dinner anchors, a grouped shopping
+list, and clearly separated single-day offers. It is portable across Hermes,
+OpenClaw, and other harnesses that can read files and run Python.
 
-This skill is **harness-neutral**: it can be used by Hermes, OpenClaw, or another LLM agent that can read files and run Python. The core engine is local Python; scheduling, credentials, delivery, and cart integrations are harness-specific.
+## Install this skill
 
-## Setup mode
+This repository is intentionally a **skills repository**. A recipient can merge
+only its skills into an existing skills directory while keeping the Python engine
+in the cloned repository:
 
-For a new household, read `LLM_SETUP.md` first and follow its intake and safety contract.
+```bash
+git clone https://github.com/mgt20/ai-skills.git
+cd ai-skills
+python3 -m pip install -e .
 
-1. Ask for household size, allergies, texture/spice constraints, preferred/avoided foods, meal count, leftovers target, budget, prep tolerance, store location, and shopping day.
-2. Copy `config/grocery.example.toml` to the private `config/grocery.local.toml`; never share the local file.
-3. Verify the correct store ID and current weekly-ad source. Do not invent a store-specific price or deal.
-4. Run the weekly-ad extractor, then `python3 build_weekly_plan.py`.
-5. Review the generated Markdown, HTML, and Slack-summary artifacts with the user before scheduling delivery or assisting with a cart.
+# Hermes (or any directory-based skills loader)
+mkdir -p ~/.hermes/skills
+cp -a skills/. ~/.hermes/skills/
+```
 
-## Planning rules
+For another harness, copy `skills/grocery-planner/` into that harness's skill
+folder. Keep the repository checkout available as the engine workdir; do not copy
+household settings into the skill directory.
 
-- Default to exactly two practical dinner candidates unless the user asks otherwise.
-- Favor low-prep, family-tolerant meals and realistic leftovers; avoid aspirational seven-night meal plans.
-- Start with household staples and explicit feedback, then use verified sales to select proteins and produce.
-- Include recipe links, rough quantity/package math, grouped shopping lists, pantry/freezer checks, and a clear separation of one-day deals from week-long deals.
-- Treat receipt history as purchase-frequency evidence, not satisfaction proof. Explicit feedback overrides it.
-- If current sale data cannot be verified, say so plainly and do not present estimates as deals.
+## First-time household setup
+
+1. Read [references/LLM_SETUP.md](references/LLM_SETUP.md).
+2. Copy [templates/grocery.example.toml](templates/grocery.example.toml) to a
+   private location outside the repository, for example `~/grocery.local.toml`.
+3. Have the user fill household preferences, store identity, and optional local
+   paths. Never commit, upload, or quote that private config.
+4. Validate it:
+
+   ```bash
+   grocery-planner validate-config --config ~/grocery.local.toml
+   ```
+
+5. Obtain a current normalized weekly-ad JSON artifact from a provider adapter.
+   The included Safeway/Flipp adapter is optional and should only be used after
+   the household has verified its store. Do not invent a current price or deal.
+6. Create a local review packet:
+
+   ```bash
+   grocery-planner plan \
+     --config ~/grocery.local.toml \
+     --ad-json /private/path/latest_extract.json \
+     --out-dir /private/path/grocery-review \
+     --date YYYY-MM-DD
+   ```
+
+The CLI accepts only a complete, date-current normalized artifact and writes
+owner-only Markdown, HTML, and JSON review files. It does not fetch live data,
+send messages, change carts, check out, pay, or place orders.
+
+## Planning behavior
+
+- Default to **two** practical dinner anchors unless the user requests another
+  number.
+- Apply the household rules in the private config to rank provider items; do not
+  embed family preferences in this shared skill.
+- Keep staples and explicit user feedback ahead of novelty.
+- Show what is verified, what is assumed, and what needs a human decision.
+- Keep single-day offers separate from week-long sale anchors.
+- If the artifact is incomplete, stale, from the wrong store, or fails coverage
+  validation, stop and explain the failure rather than producing a confident plan.
 
 ## Safety and privacy
 
-- Generate and preview freely, but do not send messages, mutate carts, check out, pay, or place orders without explicit approval.
-- Keep raw receipts, store/loyalty identifiers, home addresses, email/Slack destinations, API keys, and household-specific preferences in private local config or secrets.
-- Never include private configuration or generated household artifacts in a share bundle.
+- Keep receipts, loyalty/store identifiers, addresses, emails, chat destinations,
+  API keys, and household preferences in private config or secrets only.
+- No external delivery, cart mutation, checkout, payment, or order placement
+  without explicit approval and a separately reviewed adapter.
+- Never claim current prices without a current provider artifact.
+- Do not put private artifacts or a local config back into this repository.
 
-## Harness integration
+## Harness notes
 
-- **Hermes:** run inside a dedicated profile/workdir; use its native scheduler and messaging only after a successful local dry run.
-- **OpenClaw:** run in an OpenClaw workspace; use its scheduler/messaging configuration only after the engine has produced a reviewed local plan.
-- **Other harnesses / plain cron:** invoke the extractor and `build_weekly_plan.py`, then consume the generated files as the integration boundary:
-  - `weekly_shopping_list_latest.md`
-  - `weekly_shopping_list_latest.html`
-  - `weekly_shopping_list_slack_root_latest.txt`
+- **Hermes:** copy this directory into `~/.hermes/skills/` (or install it via the
+  harness's skill mechanism), then start a new session so it is reloaded. Use
+  Hermes cron/messaging only after a local review packet has been verified.
+- **OpenClaw / other harnesses:** copy this directory into the harness skill
+  directory and point its terminal/workdir at the cloned repository. Scheduling
+  and delivery remain harness-specific edge adapters.
 
 ## Verification
 
-Before declaring a setup or change complete:
+Before claiming the setup works:
 
-1. Run `python3 -m unittest discover -s tests -v`.
-2. Confirm the ad extractor targets the intended store and has adequate coverage.
-3. Generate a local plan and check it has the requested meal count, recipe links, quantity math, pantry checks, and the no-checkout boundary.
-4. If delivery is enabled, verify its credentials and use a dry run before any live send.
+1. `grocery-planner validate-config` accepts the private config.
+2. The provider artifact has `coverage.status == "ok"`, matches the requested
+   store, and covers the requested plan date.
+3. The local review packet is generated and checked for realistic dinner anchors,
+   grouped sale items, and a clear approval boundary.
+4. Only then offer optional scheduling, delivery, receipt learning, or cart help.

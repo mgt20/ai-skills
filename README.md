@@ -1,8 +1,9 @@
-# AI Skills
+# Grocery Agent Skills
 
-A privacy-first, harness-neutral foundation for sale-aware grocery planning. It
-contains a Python core and an agent skill usable with Hermes, OpenClaw, or another
-LLM harness.
+A privacy-first **skills repository** with an optional harness-neutral Python core
+for sale-aware grocery planning. A friend can merge `skills/` into an existing
+Hermes, OpenClaw, or directory-based agent skills folder without importing any
+private household data.
 
 ## Status
 
@@ -12,8 +13,10 @@ weekly-ad artifact that satisfies the documented contract.
 
 ## What works today
 
-- `skills/grocery-planner/SKILL.md`: agent behavior and safety contract.
-- `skills/grocery-planner/LLM_SETUP.md`: guided household onboarding.
+- `skills/README.md`: the portable-skills manifest and merge contract.
+- `skills/grocery-planner/SKILL.md`: the grocery-planning skill behavior and safety contract.
+- `skills/grocery-planner/references/LLM_SETUP.md`: guided household onboarding.
+- `skills/grocery-planner/templates/grocery.example.toml`: neutral private-config starting point.
 - `scripts/extract_safeway_weekly_ad.py`: optional Safeway/Flipp extraction to a normalized artifact.
 - `python -m grocery_agent_kit plan`: creates review-only Markdown, HTML, and JSON plan artifacts from a verified normalized ad.
 - `python -m grocery_agent_kit validate-config`: prevents use of placeholder store settings in a real household configuration.
@@ -21,18 +24,26 @@ weekly-ad artifact that satisfies the documented contract.
 Recipe selection, messaging, cart integration, and scheduling remain **edge adapters**.
 They are intentionally not invoked by the planner CLI.
 
-## Quick start: fixture-only demo
+## Install a skill and run the fixture-only demo
 
 ```bash
+git clone https://github.com/mgt20/ai-skills.git
+cd ai-skills
+python3 -m pip install -e .
+
+# Merge portable skills without flattening their folders.
+mkdir -p ~/.hermes/skills
+cp -a skills/. ~/.hermes/skills/
+
 python3 -m unittest discover -s tests -v
 
 # Make a private copy before using a real store or household.
-cp examples/basic-local/config/grocery.example.toml /secure/path/grocery.local.toml
-PYTHONPATH=src python3 -m grocery_agent_kit validate-config --config /secure/path/grocery.local.toml
+cp skills/grocery-planner/templates/grocery.example.toml ~/grocery.local.toml
+grocery-planner validate-config --config ~/grocery.local.toml
 
 # Plan only from a normalized artifact whose coverage.status is "ok".
-PYTHONPATH=src python3 -m grocery_agent_kit plan \
-  --config examples/basic-local/config/grocery.example.toml \
+grocery-planner plan \
+  --config skills/grocery-planner/templates/grocery.example.toml \
   --ad-json /path/to/latest_extract.json \
   --out-dir ./out \
   --date 2026-01-01
@@ -58,11 +69,10 @@ in a separate adapter, and checkout/payment is out of scope.
 
 ## Layout
 
-- `skills/` — portable agent instructions and setup prompts.
-- `src/` — harness-neutral Python engine.
+- `skills/` — mergeable skill directories; each has its own `SKILL.md`, references, and neutral templates.
+- `src/` — optional harness-neutral Python engine.
 - `scripts/` — optional store adapters and local runners.
-- `examples/` — copyable, non-secret configuration.
-- `docs/` — architecture and contributor contracts.
+- `docs/` — architecture and contributor contracts for the engine/adapters.
 - `tests/` — fixture-only regressions; no test needs a live store, account, or token.
 
 See `docs/architecture.md` before adding a store, recipe provider, or harness adapter.

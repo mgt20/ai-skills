@@ -12,6 +12,18 @@ class PublicBaselineTests(unittest.TestCase):
     def test_core_does_not_ship_unvetted_live_recipe_integrations(self):
         self.assertFalse((ROOT / "src" / "grocery_agent_kit" / "recipe_api.py").exists())
 
+    def test_portable_skill_is_self_contained(self):
+        skill_dir = ROOT / "skills" / "grocery-planner"
+        skill = skill_dir / "SKILL.md"
+        self.assertTrue(skill.is_file())
+        self.assertTrue((skill_dir / "references" / "LLM_SETUP.md").is_file())
+        self.assertTrue((skill_dir / "templates" / "grocery.example.toml").is_file())
+        content = skill.read_text(encoding="utf-8")
+        self.assertTrue(content.startswith("---\nname: grocery-planner\n"))
+        self.assertIn("references/LLM_SETUP.md", content)
+        self.assertIn("templates/grocery.example.toml", content)
+        self.assertNotIn("/home/", content)
+
     def test_safeway_adapter_normalizes_sanitized_fixture(self):
         spec = spec_from_file_location("safeway_adapter", ROOT / "scripts" / "extract_safeway_weekly_ad.py")
         if spec is None or spec.loader is None:
