@@ -87,6 +87,7 @@ class PublicBaselineTests(unittest.TestCase):
             r"-----BEGIN (?:[A-Z0-9 ]+ )?PRIVATE KEY-----",
             r"\b(?:xox[baprs]-|gh[opusr]_|github_pat_|sk-[A-Za-z0-9]|AKIA|ASIA)[A-Za-z0-9_-]{8,}\b",
             r"\b(?:192\.168|10\.|172\.(?:1[6-9]|2\d|3[0-1]))\.\d{1,3}\.\d{1,3}\b",
+            r"\b\d{5}(?:-\d{4})?\b",
             r"\bC[0-9][A-Z0-9]{7,}\b",
         )
         tracked = subprocess.check_output(["git", "ls-files", "-z"], cwd=ROOT).decode("utf-8").split("\0")
